@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'accueil.css' %}"?v=2>
+    <link rel="stylesheet" href="{% static 'enquete.css' %}">
+    <link rel="stylesheet" href="{% static 'debunk.css' %}">
+    <link rel="stylesheet" href="{% static 'theorie.css' %}">
+    <link rel="stylesheet" href="{% static 'explication.css' %}">
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <div class="navbar"> 
+        <div class="logo">ANTIFOUTAGE DE GUEULE</div> 
+        
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+
+        <ul class="liste">
+            <li><a href="{% url 'accueil' %}">Accueil</a></li>
+            <li><a href="{% url 'enquetes:enquetes' %}">Enquete</a></li>
+            <li><a href="{% url 'debunk:debunk' %}">Debunk</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        
+             
+    </div> 
+        {% block content %}
+        {% endblock %}
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>AntiFoutageDeGueule.com est dédié à la recherche de la vérité et à la lutte contre la désinformation. Restez curieux, restez informés !</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email : <a href="mailto:contact@antifoutagedeGueule.com">contact@antifoutagedeGueule.com</a></p>
+                <p>Téléphone : +33 6 12 34 56 78</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 AntiFoutageDeGueule.com - Tous droits réservés | <a href="#">Mentions légales</a></p>
+        </div>
+    </footer>
+        
+</body>
+</html>

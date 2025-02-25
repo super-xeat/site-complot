@@ -1,0 +1,83 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.barre {
+  margin-top: 10px;
+  position: fixed;
+  width: 100%;
+}
+.enquete-page {
+  background-image: url('terre_metal.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh; 
+}
+
+.contenu {  
+  background-color: rgba(0, 0, 0, 0.304);
+  margin: 15px 15px;
+  margin-top: 100px;
+  border-radius: 15px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+} 
+
+.contenu a {
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 25px;
+  width: 50%;
+  text-align: center;
+  font-weight: 900;
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  border: 2px solid white;
+  text-shadow: 0 0 10px white, 0 0 20px crimson;
+  margin-top: 10px;
+}
+.contenu a:hover {
+  box-shadow: 0 0 90px white, 0 0 20px crimson;
+  text-shadow: 0 0 30px white, 0 0 20px crimson;
+}
+
+.theorie-container {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  margin-left: 30px;
+  text-shadow: 0 0 30px white, 0 0 20px white;
+}
+
+.liste-theorie {
+  background-color: black;
+  color: antiquewhite;
+  border-radius: 25px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  box-shadow: 
+            0 0 5px orange,
+            0 0 10px orange,
+            0 0 15px orange;
+}
+
+.liste-theorie h1 {
+  color: crimson;
+}
+
+.liste-theorie:hover {
+  box-shadow: 0 0 30px white, 0 0 20px crimson;
+  text-shadow: 0 0 30px white, 0 0 20px crimson;
+}
+

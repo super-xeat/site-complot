@@ -1,0 +1,50 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;  
+}
+
+.explication-page {
+  background-image: url('terre.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.titre {
+  background-color: black;
+  color: crimson;
+  margin: 15px 15px;
+  border: 2px solid white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.texte-explication {
+  white-space: pre-wrap; /* Permet le retour à la ligne si besoin */
+  word-wrap: break-word;
+  overflow-x: auto; /* Ajoute un scroll horizontal si nécessaire */
+  max-width: 100%;
+  background-color: rgba(200, 195, 195, 0.892);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.contenair-explication {
+  min-height: 50vh;
+  height: auto;
+}
+
+.commentaire {
+  background-color: rgba(0, 0, 0, 0.67);
+  color: beige;
+  border-radius: 20px;
+}
+
+
+

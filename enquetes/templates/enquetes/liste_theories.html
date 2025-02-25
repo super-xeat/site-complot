@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Enquêtes | Anti-Foutage de Gueule{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'enquete.css' %}">
+{% endblock %}
+
+{% block body_class %}enquete-page{% endblock %}
+{% block content %}
+
+<br><br><br><br>
+<div class="barre">
+    <div class="liste-theorie">
+        <h1>Liste des Théories</h1>
+    </div>
+    <br>
+    <hr>
+    <a href="{% url 'accueil' %}" class="theorie-container">🔻​ page précédente 🔻​</a>
+</div>
+
+<div>
+    <div class="contenu">
+        {% for theorie in theories %}
+        <a href="{% url 'enquetes:theorie' theorie.id %}">{{ theorie.titre }}</a>  
+        {% endfor %}
+    </div>
+</div>  
+
+{% endblock %}

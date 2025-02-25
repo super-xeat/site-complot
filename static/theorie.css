@@ -1,0 +1,56 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.theorie-page {
+    background-image: url('biblio.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.commentaire {
+    background-color:rgba(0, 0, 0, 0.677);
+    color: beige;
+    border-radius: 20px; 
+}
+
+.titre {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.805);
+    border-radius: 25px;
+    font-size: 35px;
+    color: black;
+    border: 3px solid white;
+    color: crimson;
+
+}
+ 
+.titre:hover {
+    text-shadow: 0 0 10px white, 0 0 20px crimson;
+    box-shadow: 0 0 10px white, 0 0 20px crimson;
+}
+
+
+.theorie {
+    background-color: rgba(164, 163, 163, 0.844);
+    margin: 15px 15px;
+    border-radius: 15px;
+    min-height: 50vh;
+    white-space: pre-wrap; /* Permet le retour à la ligne si besoin */
+    word-wrap: break-word;
+    overflow-x: auto; /* Ajoute un scroll horizontal si nécessaire */
+    max-width: 100%;
+    height: auto;
+    color: beige;
+}
+
+.theorie p {
+    color: black;
+}

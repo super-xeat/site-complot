@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil | Anti-Foutage de Gueule{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'explication.css' %}">
+{% endblock %}
+
+{% block body_class %}explication-page{% endblock %}
+
+{% block content %}
+    <br><br><br>
+    <div class="titre">
+        <h1>{{ explication.titre }}</h1>
+    </div>
+    <div class="contenair-explication">
+        <div class="texte-explication">
+            <p>{{ explication.contenu|safe }}</p>
+        </div>
+    </div>
+
+
+    <div class="commentaire"> 
+        <h1>Commentaires</h1>
+        <ul>
+            {% for commentaire in commentaires %}
+                <li>
+                    <p>{{ commentaire.contenu }}</p>
+                    <small>Posté le {{ commentaire.date_creation }}</small>
+                </li>
+            {% empty %}
+                <li>Aucun commentaire pour le moment.</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h2>Ajouter un commentaire</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Envoyer</button>
+        </form>
+    </div> 
+
+{% endblock %}

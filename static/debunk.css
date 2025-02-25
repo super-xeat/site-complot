@@ -1,0 +1,68 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+.debunk-page {
+  background-image: url('prof.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.bare {
+  position: fixed;
+  width: 100%;
+}
+.bare a {
+  text-transform: uppercase;
+  color: white;
+}
+
+.titre {
+  background-color: black;
+  color: crimson;
+}
+
+.debunk-container {
+  background-color: rgba(0, 0, 0, 0.308);
+  margin: 15px 15px;
+  margin-top: 100px;
+  border-radius: 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.debunk-container a {
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 25px;
+  width: 50%;
+  text-align: center;
+  font-weight: 900;
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  border: 2px solid white;
+  text-shadow: 0 0 10px white, 0 0 20px crimson;
+}
+
+.debunk-container a:hover {
+  box-shadow: 0 0 10px white, 0 0 20px crimson;
+}
+
+.debunker {
+  color: crimson;
+  margin-left: 30px;
+  text-decoration: none;
+}
+  
+
+

@@ -1,0 +1,49 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.contact-moi {
+  background-image: url('contact.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.coco {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contain {
+  background-color: black;
+  width: 50%;
+  height: 40vh;
+  color: orange;
+  border-radius: 20px;
+  padding: 10px 10px;
+  border: 1px solid whitesmoke;
+  box-shadow: 
+          0 0 5px orangered,
+          0 0 10px orangered,
+          0 0 15px orangered,
+          0 0 20px orangered;
+}
+
+.contain h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.contacter h2 {
+  text-align: center;
+  margin-top: 80px;
+}

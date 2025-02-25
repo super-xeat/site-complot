@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Enquêtes | Anti-Foutage de Gueule{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+{% endblock %}
+
+{% block body_class %}contact-moi{% endblock %}
+{% block content %}
+<br><br><br>
+<h1 class="titre">page contact</h1> 
+<hr><br>
+
+<div class="coco">
+    <div class="contain">
+        <h1>Si vous avez la moindre réclamation sur une quelconque erreur de notre part. veuillez nous en faire part.
+            De méme si vous avez connaissance d'une quelconque théorie ou faits scientifiques qui pourrai soutenir
+            vos conviction, dites le nous en contactant via ce mail.
+        </h1>
+        <div class="contacter">
+            <h2>Antifoutagedegueule@gmail.com</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}  

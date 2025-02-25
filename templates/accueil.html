@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil | Anti-Foutage de Gueule{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accueil.css' %}">
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="yoyo">
+            <div class="titre1">AntiFoutage de Gueule.com</div>
+        </div>
+        <div class="box">
+            <form class="bouton" action="{% url 'search' %}" method="get">
+                <input type="text" name="q" placeholder="rechercher" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div> 
+    </header>
+    
+    <div class="main1">
+        <div class="main1-enquete">
+            <div class="img-container">
+                <img src="static/ENQUETE.png" alt="">
+            </div>  
+            <div class="navbar2">
+                <a href="{% url 'enquetes:enquetes' %}" class="enquetes">ENQUETES</a>
+                <p> Parcourez toutes nos enquetes, ici pas de bullshit
+                    juste la vérité. Le système se fout de nous. Alors 
+                    on se fout du système.
+                </p>
+                
+            </div>
+        </div>
+
+        <div class="main1-debunk">
+            <div class="img-container2">
+                <img src="static/DEBUNK.png" alt="">
+            </div>
+            <div class="navbar3">
+                <a href="{% url 'debunk:debunk' %}" class="debunk">DEBUNK</a>
+                <p> C'est ici que tu debunk, la science et rien de plus.
+                    Ici les théories scientifique prouve que le complotisme
+                    mène à l'obscurantisme.
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="rolls-container" >
+        <div class="rolls">
+            <span>⚠️​Antifoutage de gueule STOP Bullshit -</span>
+            <span>⚠️​Antifoutage de gueule STOP Bullshit -</span>
+        </div>
+    </div>
+
+    <div class="main2">
+        <div class="text-explication">
+                      
+            <h1>À propos de nous</h1>
+            <br>
+            <p>Bienvenue sur <strong>AntiFoutageDeGueule.com</strong> ! Ce site a été créé pour 
+                offrir aux esprits sceptiques un espace où s’informer de manière approfondie et critique.
+                Nous mettons à votre disposition des enquêtes menées par des journalistes expérimentés, des articles de presse, 
+                des analyses scientifiques rigoureuses et des expériences empiriques pour vous aider à mieux comprendre 
+                le monde qui nous entoure.</p>
+            <br>
+            <h1>Quel est notre but ?</h1>
+            <br>
+            <p>Notre mission est simple : révéler la vérité et informer un maximum de personnes 
+                sur la réalité de notre société. Le système dans lequel nous vivons a-t-il été conçu par 
+                une élite qui dirige notre monde dans l’ombre, ou repose-t-il uniquement sur des découvertes scientifiques objectives ?</p>
+
+            <p>Posez-vous les bonnes questions :</p>
+            <ul>
+                <li>Êtes-vous manipulé sans même vous en rendre compte ?</li>
+                <li>Faites-vous partie de ceux qui luttent contre l’obscurantisme et la désinformation ?</li>
+                <li>Quelle pilule allez-vous choisir : celle du conformisme ou celle de la vérité ?</li>
+            </ul>
+
+            <p>Le savoir est la clé de la liberté. Explorez, analysez, et surtout, pensez par vous-même !</p>
+          
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact-container">
+        <h2>contact</h2>
+            <div class="reseau">
+                <a href="{% url 'contact' %}">Reseau</a>
+                <a href="{% url 'contact' %}">Email</a>
+                <a href="{% url 'contact' %}">Numero</a>
+            </div>
+        </div>
+    </div> 
+{% endblock %}
