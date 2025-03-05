@@ -23,24 +23,33 @@
 
     <br><br><br>
     <div class="commentaire">
-        <h1>Commentaires</h1>
-        <ul>
+        <h1 class="espace_commentaire">Espace Commentaires</h1>
+        
+        <div class="tout_com">
             {% for commentaire in commentaires %}
-                <li>
-                    <p>{{ commentaire.contenu }}</p>
-                    <small>Posté le {{ commentaire.date_creation }}</small>
-                </li>
+                <p class="auteur">{{ commentaire.auteur.username }}</p>
+                <p class="contenu_com">{{ commentaire.contenu }}</p>
+            <br><br>
             {% empty %}
                 <li>Aucun commentaire pour le moment.</li>
             {% endfor %}
-        </ul>
+        </div>
+
         <hr>
-        <h2>Ajouter un commentaire</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Envoyer</button>
-        </form>
+        <div class="formulaire">
+            <h2 class="ajouter_com">Ajouter un commentaire</h2>
+            <form method="post" action="{% url 'enquetes:ajouter_commentaires' theorie.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                    
+                {% if user.is_authenticated %}
+                    <button type="submit">Envoyer</button>
+                {% else %}
+                    <p style="color: red;">Vous devez être connecté avant de commenter.</p>
+                    <button type="submit" disabled>Envoyer</button>
+                {% endif %}
+            </form>
+        </div>
     </div>
 </html>
 {% endblock %}

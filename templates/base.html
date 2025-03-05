@@ -26,18 +26,66 @@
             <li><a href="{% url 'accueil' %}">Accueil</a></li>
             <li><a href="{% url 'enquetes:enquetes' %}">Enquete</a></li>
             <li><a href="{% url 'debunk:debunk' %}">Debunk</a></li>
+            <li><a href="{% url 'users:inscription' %}">Subscribe</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
-        <div class="social-icons">
-            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        </div>
         
-             
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            </div> 
+        </ul>
+        
+        <div class="user-menu">
+            <input type="checkbox" id="user-menu-toggle" class="menu-checkbox">
+            <label for="user-menu-toggle" class="menu-btn">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="4" stroke="orange" stroke-width="2"/>
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="orange" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </label>
+
+            <div class="connexion">
+                {% if user.is_authenticated %}
+                    <p>{{ user.username }}</p>
+                    {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" alt="avatar" width="40px" height="40px">
+                    {% else %}
+                        <img src="{% static 'default_avatar.jpg' %}" alt="avatar" width="40px" height="40px">
+                    {% endif %}
+
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">deconnexion</button>
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                    </form>
+                    <button type="submit">
+                        <a href="{% url 'users:profil' %}">modifier</a>
+                    </button>
+
+                {% else %} 
+
+                    <form action="{% url 'users:auto_login' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                        <input type="password" name="password" placeholder="Mot de passe" required>
+                        <button type="submit">Se connecter</button>
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                    </form>
+            
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% endif %}
+                {% endif %}       
+            </div>
+        </div>
+       
+          
     </div> 
+
         {% block content %}
         {% endblock %}
+
     <footer>
         <div class="footer-container">
             <div class="footer-section">

@@ -1,6 +1,9 @@
 from django.db import models
 from video_encoding.fields import VideoField
 from tinymce.models import HTMLField
+from django.conf import settings
+
+
 
 class Theorie(models.Model):
     titre = models.CharField(max_length=200)
@@ -14,16 +17,16 @@ class Theorie(models.Model):
 
 class Video(models.Model):
     fichier = VideoField(upload_to="video/", null=True, blank=True) 
-    explication = models.ForeignKey(Theorie, on_delete=models.CASCADE, related_name='videos')
+    explication = models.ForeignKey(Theorie, on_delete=models.CASCADE, related_name='videos', null=True, blank=True)
 
     def __str__(self):
         return f"{self.explication}"       
 
 class Commentaire(models.Model):
-    auteur = models.CharField(max_length=255, default="Anonyme")
-    explication = models.ForeignKey(Theorie, on_delete=models.CASCADE, related_name='commentaires')
-    contenu = models.TextField(default="Aucun contenu")
+    auteur = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='commentaires_enquetes')
+    theorie = models.ForeignKey(Theorie, on_delete=models.CASCADE)
+    contenu = models.TextField()
     date_publication = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.explication} {self.date_publication}"
+        return f"{self.auteur.username} {self.contenu}"

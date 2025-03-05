@@ -19,6 +19,7 @@ from django.urls import path, include
 from site_ultime2 import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,9 @@ urlpatterns = [
     path('debunk/', include('debunk.urls')),
     path('contact/', views.contact, name='contact'),
     path('search/', views.search, name='search'),
+    path('users/', include('users.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     
 ]
 

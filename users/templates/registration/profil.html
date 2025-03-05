@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+<h2>Bienvenue, {{ request.user.username }} !</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Modifier mon profil</button>
+</form>
+
+{% if profil.avatar %}
+    <img src="{{ profil.avatar.url }}" alt="Photo de profil">
+{% else %}
+    <p>Pas de photo de profil.</p>
+{% endif %}
+
+<!-- Formulaire pour supprimer le compte -->
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" name="delete_account" style="color:red;">Supprimer mon compte</button>
+</form>
+
+{% endblock %}
